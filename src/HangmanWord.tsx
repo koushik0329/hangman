@@ -4,7 +4,7 @@ type HangmanWordProps = {
   reveal?: boolean;
 };
 
-function HangmanWord({
+export function HangmanWord({
   guessedLetters,
   wordToGuess,
   reveal = false,
@@ -39,5 +39,3 @@ function HangmanWord({
     </div>
   );
 }
-
-export default HangmanWord;
