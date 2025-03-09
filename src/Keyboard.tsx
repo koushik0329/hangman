@@ -1,3 +1,4 @@
+import { Key } from "react";
 import styles from "./Keyboard.module.css";
 
 const KEYS = [
@@ -29,7 +30,35 @@ const KEYS = [
   "z",
 ];
 
-function Keyboard() {
-  return;
+type KeyboardProps = {
+  disabled?: boolean;
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+};
+
+function Keyboard({
+  activeLetters,
+  inactiveLetters,
+  addGuessedLetter,
+  disabled = false,
+}: KeyboardProps) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
+        gap: ".5rem",
+      }}
+    >
+      {KEYS.map((key) => {
+        return (
+          <button className={`${styles.btn}`} key={key}>
+            {key}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
 export default Keyboard;
